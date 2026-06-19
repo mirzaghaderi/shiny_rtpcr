@@ -36,10 +36,10 @@ runApp(system.file("shinyapp/app.R", package = "rtpcr"))
 
 
 
-# Functions
+#  Functional tabs
 In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform delta delta Ct (ddCt) expression analysis, while `ANOVA_DCt` analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. 
 
-| Function            | Description                                                  |
+| Tabs            | Description                                                  |
 |---------------------|--------------------------------------------------------------|
 | `ANOVA_DCt`     | dCt expression analysis for all the level combinations of factor(s). |
 | `ANOVA_DDCt`    | ddCt expression analysis for levels of a factor (generally or per levels of another factors(s)), specified by the `specs` argument.  |
@@ -53,15 +53,15 @@ In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`,
 
 # Input data structure 
 
-For relative expression analysis use `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs. The amplification efficiency (`E`) and `Ct` or `Cq` values (the mean of technical replicates) is used for the input table. If the `E` values are  not available you should use '2' instead representing the complete primer amplification efficiency. The input data table should include the following columns from left to wright:
+Input data should be in csv format. For relative expression analysis using `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs, the input data table should include the following columns from left to wright:
 
 
 1.  Experimental condition columns (and one block if available [NOTE 1](#note-1))
 2.  Replicates information (biological replicates or subjects; see [NOTE 2](#note-2), and [NOTE 3](#note-3))  
 3.  Target genes efficiency and Ct values (a pair column for each gene).
-4.  Reference genes efficiency and Ct values (a pair column for each gene) [NOTE 4](#note-4).
+4.  Reference genes efficiency and Ct values (a pair column for each gene).
 
-The tool supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below.
+Each functional tab include a sample data that if clicked, appropriate argument values is automatically entered. The tool supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below. Complete amplification efficiency (E) in the input data is denoted by 2. This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and 0.70% amplification efficiencies.
 
 
 
@@ -96,17 +96,14 @@ information of target and reference genes</figcaption>
 
 #### NOTE 1
 
-When a qPCR experiment is done in multiple qPCR plates, variation
-resulting from the plates may interfere with the actual amount of gene
-expression. One solution is to conduct each plate as a randomized block
-so that at least one replicate of each treatment and control is present
-on a plate. Block effect is usually considered as random and its
+When a qPCR experiment is done in multiple qPCR plates, conduct each plate as a randomized block
+so that at least one replicate of each treatment and control is present on each plate. Block effect is usually considered as random and its
 interaction with any main effect is not considered.
 
 #### NOTE 2
 
 For `TTEST_DDCt` and `WILCOX_DDCt` (independent groups),
-`ANOVA_DCt`, and `ANOVA_DDCt` each row is from a separate and unique
+`ANOVA_DCt`, and `ANOVA_DDCt` each row in the input table is from a separate and unique
 biological replicate. For example, a data frame with 12 rows has come
 from an experiment with 12 individuals. The repeated measure models are
 intended for experiments with repeated observations (e.g. time-course
@@ -118,17 +115,7 @@ sampled at specific time points.
 
 #### NOTE 3
 
-Your data table may also include a column of technical replicates. For
-example, using one target and one reference genes, if you want to have 4
-biological and 3 technical replicates under Control and Treatment
-conditions, there would be a table of 24 rows containing both biological
-replicates and technical replicate columns in the data. In this case,
-the `meanTech` tab should be applied first to calculate the mean
-of the technical replicates. The resulting collapsed table is then used
-as the input for expression analysis. To use the `meanTech` tab
-correctly, the technical replicate column must appear immediately after
-the biological replicate column (see [Mean of technical
-replicates](#mean-of-technical-replicates) for an example).
+Your data table may also include a column of technical replicates. in this case, the technical replicate column should be located immediately after the biological replicate column. In this case, the `meanTech` tab should be applied first to calculate the mean of the technical replicates. The resulting collapsed table is then used as the input for expression analysis. see the samople data in the `meanTech` tab.
 
 <figure>
 <img src="man/figures/base.png" class="center" style="width:100.0%"
@@ -145,12 +132,6 @@ replicates is averaged to get a condensed dataset, comprising eight rows
 the downstream relative expression analysis. Green and yellow circles
 are control samples.</figcaption>
 </figure>
-
-#### NOTE 4
-
-Complete amplification efficiency (E) in the input data is denoted by 2.
-This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and
-0.70% amplification efficiencies.
 
 # Handling missing data
 
