@@ -57,7 +57,7 @@ runApp(system.file("shinyapp/app.R", package = "rtpcr"))
 
 
 # Functions
-In the rtpcr package, functions with _DDCt at the end of their name (`ANOVA_DDCt()`, `TTEST_DDCt()`, `WILCOX_DDCt()`) perform expression analysis based on the delta delta Ct (ddCt) method, while `ANOVA_DCt()` function analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. Mean comparisons is actually performed by the `emmeans()` function using the resulting model from the ANOVA analysis. 
+In the rtpcr package, functions with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform expression analysis based on the delta delta Ct (ddCt) method, while `ANOVA_DCt` function analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. Mean comparisons is actually performed by the `emmeans()` function using the resulting model from the ANOVA analysis. 
 
 | Function            | Description                                                  |
 |---------------------|--------------------------------------------------------------|
@@ -70,28 +70,6 @@ In the rtpcr package, functions with _DDCt at the end of their name (`ANOVA_DDCt
 | `efficiency`        | Amplification efficiency statistics and standard curves     |
 | `meanTech`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
 | `multiplot`         | Combine multiple ggplot objects into a single layout   |
-
-
-# Quick start
-### Installing and loading
-
-The `rtpcr` package can be installed by running the following code in R:
-
-from CRAN:
-
-```{r eval = F}
-# Installing from CRAN
-install.packages("rtpcr")
-
-# Loading the package
-library(rtpcr)
-```
-
-Or from from GitHub (developing version):
-
-```{r eval = F}
-devtools::install_github("mirzaghaderi/rtpcr", build_vignettes = TRUE)
-```
 
 
 # Input data structure 
@@ -120,10 +98,6 @@ If there is no blocking factor, the block column should be omitted. However, a c
 <br>
 
 ![Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes](man/figures/dataStructure1.png){.center width="100%"}
-
-
-
-
 
 
 #### NOTE 1
