@@ -4,7 +4,7 @@
 # shiny_rtpcr 
 
 
-the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from the rtpcr package that provide a framework for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application simplifies complex, multi-step analytical workflows, including technical replicate averaging, primer efficiency validation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr empowers researchers to generate publication-ready data and visualizations without requiring command-line programming expertise. 
+the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr package that is used for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application performs technical replicate averaging, primer efficiency calculation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr also generates publication-ready barplots. shiny_rtpcr is available at https://mirzaghaderi.shinyapps.io/rtpcr/.
 
 
 <figure>
@@ -23,7 +23,7 @@ class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a></figcaption>
 
 # Running the shiny_rtpcr offline 
 
-If you have problem with connecting to https://mirzaghaderi.shinyapps.io/rtpcr/, you can follow the following steps in Rstudio to run the shiny version of the rtpcr offline.
+If you have problem with connecting to https://mirzaghaderi.shinyapps.io/rtpcr/, follow these steps in Rstudio to run the shiny_rtpcr offline.
 
 ```{r eval= F}
 install.packages("rtpcr")
@@ -37,7 +37,7 @@ runApp(system.file("shinyapp/app.R", package = "rtpcr"))
 
 
 # Functions
-In the shiny_rtpcr tool, functions with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform expression analysis based on the delta delta Ct (ddCt) method, while `ANOVA_DCt` tool analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. Mean comparisons is actually performed by the `emmeans()` function using the resulting model from the ANOVA analysis. 
+In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform delta delta Ct (ddCt) expression analysis, while `ANOVA_DCt` analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. 
 
 | Function            | Description                                                  |
 |---------------------|--------------------------------------------------------------|
@@ -46,7 +46,6 @@ In the shiny_rtpcr tool, functions with _DDCt at the end of their name (`ANOVA_D
 | `TTEST_DDCt`    | ddCt method *t*.test analysis for paired or unpaired samples. |
 | `WILCOX_DDCt`         | ddCt method wilcox.test analysis for paired or unpaired samples.    |
 | `plotFactor`        | Bar plot of gene expression for one-, two- or three-factor experiments
-| `Means_DDCt`        | Pairwise comparison of RE values for any user-specified effect |
 | `efficiency`        | Amplification efficiency statistics and standard curves     |
 | `meanTech`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
 | `multiplot`         | Combine multiple ggplot objects into a single layout   |
@@ -54,18 +53,15 @@ In the shiny_rtpcr tool, functions with _DDCt at the end of their name (`ANOVA_D
 
 # Input data structure 
 
-For relative expression analysis (using `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DCt()`, and `ANOVA_DDCt()` functions), the amplification efficiency (`E`) and `Ct` or `Cq` values (the mean of technical replicates) is used for the input table. If the `E` values are  not available you should use '2' instead representing the complete primer amplification efficiency. The input data table should include the following columns from left to wright:
+For relative expression analysis use `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs. The amplification efficiency (`E`) and `Ct` or `Cq` values (the mean of technical replicates) is used for the input table. If the `E` values are  not available you should use '2' instead representing the complete primer amplification efficiency. The input data table should include the following columns from left to wright:
 
 
-1.  Experimental condition columns (and one block if
-    available [NOTE 1](#note-1))
-2.  Replicates information (biological replicates or subjects; see [NOTE
-    2](#note-2), and [NOTE 3](#note-3))  
+1.  Experimental condition columns (and one block if available [NOTE 1](#note-1))
+2.  Replicates information (biological replicates or subjects; see [NOTE 2](#note-2), and [NOTE 3](#note-3))  
 3.  Target genes efficiency and Ct values (a pair column for each gene).
-4.  Reference genes efficiency and Ct values (a pair column for each
-    gene) [NOTE 4](#note-4).
+4.  Reference genes efficiency and Ct values (a pair column for each gene) [NOTE 4](#note-4).
 
-The package supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below.
+The tool supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below.
 
 
 
@@ -109,8 +105,8 @@ interaction with any main effect is not considered.
 
 #### NOTE 2
 
-For `TTEST_DDCt()` and `WILCOX_DDCt()` (independent groups),
-`ANOVA_DCt()`, and `ANOVA_DDCt()` each row is from a separate and unique
+For `TTEST_DDCt` and `WILCOX_DDCt` (independent groups),
+`ANOVA_DCt`, and `ANOVA_DDCt` each row is from a separate and unique
 biological replicate. For example, a data frame with 12 rows has come
 from an experiment with 12 individuals. The repeated measure models are
 intended for experiments with repeated observations (e.g. time-course
@@ -127,9 +123,9 @@ example, using one target and one reference genes, if you want to have 4
 biological and 3 technical replicates under Control and Treatment
 conditions, there would be a table of 24 rows containing both biological
 replicates and technical replicate columns in the data. In this case,
-the `meanTech()` function should be applied first to calculate the mean
+the `meanTech` tab should be applied first to calculate the mean
 of the technical replicates. The resulting collapsed table is then used
-as the input for expression analysis. To use the `meanTech()` function
+as the input for expression analysis. To use the `meanTech` tab
 correctly, the technical replicate column must appear immediately after
 the biological replicate column (see [Mean of technical
 replicates](#mean-of-technical-replicates) for an example).
@@ -170,7 +166,7 @@ averaged in that replicate.
 
 ### Amplification Efficiency
 
-The `efficiency()` function calculates the amplification efficiency (E),
+The `efficiency` tab calculates the amplification efficiency (E),
 slope, and R² statistics for genes, and performs pairwise comparisons of
 slopes. It takes a data frame in which the first column contains the
 dilution ratios, followed by the Ct value columns for each gene.
@@ -190,26 +186,23 @@ the amplification efficiency for each gene</figcaption>
 ### Relative expression
 
 **Single factor experiment with two levels (e.g. Control and
-Treatment):** `TTEST_DDCt()` function is used for relative expression
+Treatment):** `TTEST_DDCt` function is used for relative expression
 analysis in treatment condition compared to the control group. Both
 paired and unpaired experimental designs are supported. if the data
-doesn’t follow t.test assumptions, the `WILCOX_DDCt()` function can be
-used instead.
+doesn’t follow t.test assumptions, the `WILCOX_DDCt()` function can be used instead.
 
-**Single- or multi-factor experiments:** In these cases, `ANOVA_DDCt()`
-and `ANOVA_DCt()` functions are used for the analysis of qPCR data. By
-default, statistical analysis is performed based on uni- or
-multi-factorial Completely Randomized Design (CRD) or Randomized
+**Single- or multi-factor experiments:** In these cases, `ANOVA_DDCt` and `ANOVA_DCt` tabs are used. By
+default, statistical analysis is performed based on uni- or multi-factorial Completely Randomized Design (CRD) or Randomized
 Complete Block Design (RCBD) design based on `numOfFactors` and the
 availability of `block`. However, optional custom model formula as a
-character string can be supplied to these functions. If provided, this
+character string (see table below) can be supplied to these functions. If provided, this
 overrides the default formula (full factorial CRD or RCBD design). The
 formula uses `wDCt` as the response variable (wDCt is automatically
 created by the function). For mixed models, include random effects using
 `lmer` syntax (e.g., `wDCt ~ Treatment + (1 | id)`). Below are a sample
 of most common models that can be used.
 
-| Example models may be used in `ANOVA_DCt()` or `ANOVA_DDCt()` functions | Experimental design |
+| Example models may be used in `ANOVA_DCt` or `ANOVA_DDCt` tabs | Experimental design |
 |----|----|
 | wDCt ~ Condition | Completely Randomized Design (CRD). Can also be used for t.test with two independent groups. (**default**) |
 | wDCt ~ Factor1 \* Factor2 \* Factor3 | Factorial under Completely Randomized Design (RCBD) (**default**) |
@@ -222,7 +215,7 @@ of most common models that can be used.
 
 #### NOTE
 
-By default, data are analysed according to a full factorial CRD (if
+By default, data are analyzed according to a full factorial CRD (if
 there is no blocking factor) or RCBD (if there is a blocking factor)
 model, so you do not need to explicitly define a model. The package
 automatically selects an appropriate model based on the provided
@@ -456,54 +449,7 @@ Email: gh.mirzaghaderi at uok.ac.ir
 
 # Citation
 
-``` md
-citation("rtpcr")
-
 To cite the package ‘rtpcr’ in publications, please use:
 
   Ghader Mirzaghaderi (2025). rtpcr: a package for statistical analysis and graphical
   presentation of qPCR data in R. PeerJ 13:e20185. https://doi.org/10.7717/peerj.20185
-
-A BibTeX entry for LaTeX users is
-
-  @Article{,
-    title = {rtpcr: A package for statistical analysis and graphical presentation of qPCR data in R},
-    author = {Ghader Mirzaghaderi},
-    journal = {PeerJ},
-    volume = {13},
-    pages = {e20185},
-    year = {2025},
-    doi = {10.7717/peerj.20185},
-  }
-```
-
-# References
-
-Livak, Kenneth J, and Thomas D Schmittgen. 2001. Analysis of Relative
-Gene Expression Data Using Real-Time Quantitative PCR and the Double
-Delta CT Method. Methods 25 (4).
-<a href="https://doi.org/10.1006/meth.2001.1262">doi.org/10.1006/meth.2001.1262</a>.
-
-Ganger, MT, Dietz GD, Ewing SJ. 2017. A common base method for analysis
-of qPCR data and the application of simple blocking in qPCR experiments.
-BMC bioinformatics 18, 1-11.
-<a href="https://doi.org/10.1186/s12859-017-1949-5">doi.org/10.1186/s12859-017-1949-5</a>.
-
-Mirzaghaderi G. 2025. rtpcr: a package for statistical analysis and
-graphical presentation of qPCR data in R. PeerJ 13, e20185.
-<a href="https://doi.org/10.7717/peerj.20185">doi.org/10.7717/peerj.20185</a>.
-
-Pfaffl MW, Horgan GW, Dempfle L. 2002. Relative expression software tool
-(REST©) for group-wise comparison and statistical analysis of relative
-expression results in real-time PCR. Nucleic acids research 30, e36-e36.
-<a href="https://doi.org/10.1093/nar/30.9.e36">doi.org/10.1093/nar/30.9.e36</a>.
-
-Taylor SC, Nadeau K, Abbasi M, Lachance C, Nguyen M, Fenrich, J. 2019.
-The ultimate qPCR experiment: producing publication quality,
-reproducible data the first time. Trends in Biotechnology, 37(7),
-761-774.
-<a href="https://doi.org/10.1016/j.tibtech.2018.12.002">doi.org/10.1016/j.tibtech.2018.12.002</a>.
-
-Yuan, JS, Ann Reed, Feng Chen, and Neal Stewart. 2006. Statistical
-Analysis of Real-Time PCR Data. BMC Bioinformatics 7 (85).
-<a href="https://doi.org/10.1186/1471-2105-7-85">doi.org/10.1186/1471-2105-7-85</a>.
