@@ -255,43 +255,29 @@ functions.</figcaption>
 
 <br>
 
-### Examples
-
-Relative expression analysis can be done using ddCt or dCt methods
-through different functions (i.e. `TTEST_DDCt()`, `WILCOX_DDCt()`,
-`ANOVA_DDCt()`, and `ANOVA_DCt()`). Below are some examples of
-expression analysis using ddCt method.
 
 
 # Output
 
 ## Data output
 
-All the functions for relative expression analysis (including
-`TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DDCt()`, and `ANOVA_DCt()`)
+All the tab functions for relative expression analysis (including
+`TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DDCt`, and `ANOVA_DCt`)
 return the relative expression table which include fold change and
-corresponding statistics. The output of `ANOVA_DDCt()`, and
-`ANOVA_DCt()` also include lm model, residuals, raw data and ANOVA table
-for each gene. These outputs can be obtained as follow:
-
-| Per_gene Output  | Code                                |
-|------------------|-------------------------------------|
-| expression table | `res$relativeExpression`            |
-| ANOVA table      | `res$perGene$gene_name$ANOVA_table` |
-| ANOVA lm         | `res$perGene$gene_name$lm`          |
-| ANOVA lm formula | `res$perGene$gene_name$lm_formula`  |
-| Residuals        | `resid(res$perGene$gene_name$lm)`   |
+corresponding statistics. The output of `ANOVA_DDCt`, and
+`ANOVA_DCt` also include lm model, residuals, raw data and ANOVA table
+for each gene.
 
 
 <figure>
 <img src="man/figures/out.png" class="center" style="width:100.0%"
-alt="Figure 7: A) All the functions for relative expression analysis (including TTEST_DDCt(), WILCOX_DDCt(), ANOVA_DDCt(), and ANOVA_DCt()) return the relative expression table which include fold change and corresponding statistics. B) The output of ANOVA_DDCt(), and ANOVA_DCt() also include lm model, residuals, raw data and ANOVA table for each gene." />
+alt="Figure 7: A) All the functions for relative expression analysis (including TTEST_DDCt, WILCOX_DDCt, ANOVA_DDCt, and ANOVA_DCt) return the relative expression table which include fold change and corresponding statistics. The output of ANOVA_DDCt, and ANOVA_DCt also include lm model, residuals, raw data and ANOVA table for each gene." />
 <figcaption aria-hidden="true">Figure 7: A) All the functions for
-relative expression analysis (including <code>TTEST_DDCt()</code>,
-<code>WILCOX_DDCt()</code>, <code>ANOVA_DDCt()</code>, and
-<code>ANOVA_DCt()</code>) return the relative expression table which
-include fold change and corresponding statistics. B) The output of
-<code>ANOVA_DDCt()</code>, and <code>ANOVA_DCt()</code> also include lm
+relative expression analysis (including <code>TTEST_DDCt</code>,
+<code>WILCOX_DDCt</code>, <code>ANOVA_DDCt()</code>, and
+<code>ANOVA_DCt</code>) return the relative expression table which
+include fold change and corresponding statistics. The output of
+<code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm
 model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
 
