@@ -338,9 +338,13 @@ function.</figcaption>
 
 Email: gh.mirzaghaderi at uok.ac.ir
 
-# Citation
 
-To cite the package ‘rtpcr’ in publications, please use:
+# Tutorial on youtube
+
+  https://www.youtube.com/watch?v=3LvQMkcJL9U
+
+
+# Citation
 
   Ghader Mirzaghaderi (2025). rtpcr: a package for statistical analysis and graphical
   presentation of qPCR data in R. PeerJ 13:e20185. https://doi.org/10.7717/peerj.20185
