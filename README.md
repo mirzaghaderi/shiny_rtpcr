@@ -281,21 +281,6 @@ include fold change and corresponding statistics. The output of
 model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
 
-## Plot output
-
-A single function of `plotFactor()` is used to produce bar plots for
-one- to three-factor expression tables.
-
-## Plot output: example 1
-
-
-<figure>
-<img src="man/figures/Rplot02.png" class="center" height="400"
-alt="Figure 8: The bar plots of the log2 fold change expression of a gene produced by the plotFactor() function." />
-<figcaption aria-hidden="true">Figure 8: The bar plots of the log2 fold
-change expression of a gene produced by the
-<code>plotFactor()</code> function.</figcaption>
-</figure>
 
 # How to edit output plots?
 
