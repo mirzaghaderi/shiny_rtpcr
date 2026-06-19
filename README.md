@@ -4,7 +4,7 @@
 # shiny_rtpcr 
 
 
-the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr package that is used for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application performs technical replicate averaging, primer efficiency calculation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr also generates publication-ready barplots. shiny_rtpcr is available at https://mirzaghaderi.shinyapps.io/rtpcr/.
+the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr package [rtpcr package](https://github.com/mirzaghaderi/shiny_rtpcr) that is used for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application performs technical replicate averaging, primer efficiency calculation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr also generates publication-ready barplots. shiny_rtpcr is available at https://mirzaghaderi.shinyapps.io/rtpcr/.
 
 
 <figure>
@@ -117,21 +117,7 @@ sampled at specific time points.
 
 Your data table may also include a column of technical replicates. in this case, the technical replicate column should be located immediately after the biological replicate column. In this case, the `meanTech` tab should be applied first to calculate the mean of the technical replicates. The resulting collapsed table is then used as the input for expression analysis. see the samople data in the `meanTech` tab.
 
-<figure>
-<img src="man/figures/base.png" class="center" style="width:100.0%"
-alt="Figure 4: An experimental design with four biological replicates for both Control and Treatment conditions, assuming a single sampling time point, where cDNA samples were analyzed by qPCR. The diagram details the initial dataset containing technical replicates. Three technical replicates shown for biological replicate 1 under Control, with example amplification efficiencies (E) and cycle threshold (Ct) values for both target and reference genes. Technical replicates is averaged to get a condensed dataset, comprising eight rows (one per biological replicate). This final data structure is used for the downstream relative expression analysis. Green and yellow circles are control samples." />
-<figcaption aria-hidden="true">Figure 4: An experimental design with
-four biological replicates for both Control and Treatment conditions,
-assuming a single sampling time point, where cDNA samples were analyzed
-by qPCR. The diagram details the initial dataset containing technical
-replicates. Three technical replicates shown for biological replicate 1
-under Control, with example amplification efficiencies (E) and cycle
-threshold (Ct) values for both target and reference genes. Technical
-replicates is averaged to get a condensed dataset, comprising eight rows
-(one per biological replicate). This final data structure is used for
-the downstream relative expression analysis. Green and yellow circles
-are control samples.</figcaption>
-</figure>
+
 
 # Handling missing data
 
@@ -152,17 +138,6 @@ slope, and R² statistics for genes, and performs pairwise comparisons of
 slopes. It takes a data frame in which the first column contains the
 dilution ratios, followed by the Ct value columns for each gene.
 
-
-<figure>
-<img src="man/figures/standCur.png" class="center" style="width:67.0%"
-alt="Figure 5: Standard curve plot displaying the relationship between the logarithm of cDNA dilution factors (ranging from -2.0 to 0.0) and their corresponding qPCR cycle threshold (Ct) values for three genes: C2H2.26, C2H2.01, and GAPDH. The accompanying table provides the precise Ct measurements, which is used to determine the amplification efficiency for each gene" />
-<figcaption aria-hidden="true">Figure 5: Standard curve plot displaying
-the relationship between the logarithm of cDNA dilution factors (ranging
-from -2.0 to 0.0) and their corresponding qPCR cycle threshold (Ct)
-values for three genes: C2H2.26, C2H2.01, and GAPDH. The accompanying
-table provides the precise Ct measurements, which is used to determine
-the amplification efficiency for each gene</figcaption>
-</figure>
 
 ### Relative expression
 
@@ -215,43 +190,7 @@ use the `TTEST_DDCt()` with the argument `paired = TRUE`; or
 measure model such as `wDCt ~ Treatment + ( 1 | id)` or
 `wDCt ~ Treatment + ( 1 | Rep)`.
 
-<figure>
-<img src="man/figures/repeated_measure.png" class="center"
-style="width:100.0%"
-alt="Figure 6: A) Basic structure of independent group- or paired group-experiments. Data of paired group-experiments are analysed using the TTEST_DDCt() function with the argument paired = TRUE; or using the ANOVA_DDCt() function with a repeated measure model such as wDCt ~ Treatment + ( 1 | Rep). B) The standard error (se) in the ANOVA_DDCt() function is calculated from weighted delta Ct (wDCt) values or model residuals (default, modelBased_se = TRUE) for the experimental groups according to the selected se.type (One of paired.group, two.group, or single.group). Note that in the paired.group method,se is computed from differences (wddCt or equivalent values from residuals) which resembles the standard error of a paired t.test, while two.group and single.group methods use wdCt or residual values. In the two.group method, se is computed for each non-reference group from that group and the reference (calibrator) group which resembles the standard error of an unpaired t.test. single.group computes se within each reference or non-reference group. If a model for a repeated‐measure or a paired-group design is specified, se.type should be set to paired.group in the ANOVA_DDCt() function. In method 4, the 95% confidence interval (CI) is calculated and printed in the output expression table under LCL and UCL columns. CI uses the pooled standard error (SE) and can be used as another way of error presentation. It can be used for any experimental models as it is derived from a fitted model. The calculated se in the TTEST_DDCt() and WILCOX_DDCt() functions is two.group or paired.group for unpaired and paired groups, respectively, and single.group is not available in these functions." />
-<figcaption aria-hidden="true">Figure 6: A) Basic structure of
-independent group- or paired group-experiments. Data of paired
-group-experiments are analysed using the <code>TTEST_DDCt()</code>
-function with the argument paired = TRUE; or using the
-<code>ANOVA_DDCt()</code> function with a repeated measure model such as
-<code>wDCt ~ Treatment + ( 1 | Rep)</code>. B) The standard error
-(<code>se</code>) in the <code>ANOVA_DDCt()</code> function is
-calculated from from weighted delta Ct (wDCt) values or model residuals
-(default, <code>modelBased_se = TRUE</code>) for the experimental groups
-according to the selected <code>se.type</code> (One of
-<code>paired.group</code>, <code>two.group</code>, or
-<code>single.group</code>). Note that in the <code>paired.group</code>
-method,<code>se</code> is computed from differences (wddCt or equivalent
-values from residuals) which resembles the standard error of a paired
-t.test, while <code>two.group</code> and <code>single.group</code>
-methods use wdCt or resudual values. In the <code>two.group</code>
-method, <code>se</code> is computed for each non-reference group from
-that group and the reference (calibrator) group which resembles the
-standard error of an unpaired t.test. <code>single.group</code> computes
-<code>se</code> within each reference or non-reference group. If a model
-for a repeated‐measure or a paired-group design is specified,
-<code>se.type</code> should be set to <code>paired.group</code> in the
-<code>ANOVA_DDCt()</code> function. In method 4, the 95% confidence
-interval (CI) is calculated and printed in the output expression table
-under LCL and UCL columns. CI uses the pooled standard error (SE) and
-can be used as another way of error presentation. It can be used for any
-experimental models as it is derived from a fitted model. The calculated
-<code>se</code> in the <code>TTEST_DDCt()</code> and
-<code>WILCOX_DDCt()</code> functions is <code>two.group</code> or
-<code>paired.group</code> for unpaired and paired groups, respectively,
-and <code>single.group</code> is not available in these
-functions.</figcaption>
-</figure>
+
 
 <br>
 
@@ -324,15 +263,6 @@ using the `meanTech` tab. The input dataset must follow the
 column structure illustrated in the example data below. Columns used for
 grouping should be specified in the `groups` argument.
 
-
-
-<figure>
-<img src="man/figures/techrep.png" class="center" height="380"
-alt="Figure 11: The mean of technical replicates can be computed using the meanTech() function." />
-<figcaption aria-hidden="true">Figure 11: The mean of technical
-replicates can be computed using the <code>meanTech()</code>
-function.</figcaption>
-</figure>
 
 # Contact
 
