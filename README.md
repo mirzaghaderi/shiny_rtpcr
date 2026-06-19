@@ -192,6 +192,19 @@ measure model such as `wDCt ~ Treatment + ( 1 | id)` or
 
 
 
+
+<br>
+
+
+<figure>
+<img src="man/figures/ddCt1.png" class="center"
+style="width:100.0%"
+alt="Figure 4:Sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes used to be analyzed by ddCT method" />
+<figcaption aria-hidden="true">Figure 4: Sample input data with two
+experimetal factors, blocking factor, replicate column and E/Ct
+information of target and reference genes used to be analyzed by ddCT method</figcaption>
+</figure>
+
 <br>
 
 
