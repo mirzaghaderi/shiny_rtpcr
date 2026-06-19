@@ -87,11 +87,15 @@ experimental factor, replicate column and E/Ct information of target and
 reference genes</figcaption>
 </figure>
 
+
 <br>
+
 
 If there is no blocking factor, the block column should be omitted. However, a column for biological replicates (which may be named "Rep", "id" or similar) is always required.
 
+
 <br>
+
 
 <figure>
 <img src="man/figures/dataStructure1.png" class="center"
