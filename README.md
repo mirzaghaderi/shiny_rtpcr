@@ -1,17 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rtpcr <img src="man/figures/logo.png" align="right" height="140/"/>
+# shiny_rtpcr 
 
-<!-- badges: start -->
-
-[![](https://cranlogs.r-pkg.org/badges/grand-total/rtpcr)](https://cran.rstudio.com/web/packages/rtpcr/index.html)
-[![R package
-version](https://img.shields.io/github/r-package/v/mirzaghaderi/rtpcr)](https://github.com/mirzaghaderi/rtpcr)
-[![CRAN
-version](https://www.r-pkg.org/badges/version/rtpcr)](https://CRAN.R-project.org/package=rtpcr)
-
-⁠<!-- badges: end -->
 
 the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from the rtpcr package that provide a framework for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application simplifies complex, multi-step analytical workflows, including technical replicate averaging, primer efficiency validation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr empowers researchers to generate publication-ready data and visualizations without requiring command-line programming expertise. 
 

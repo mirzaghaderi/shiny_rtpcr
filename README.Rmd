@@ -8,20 +8,9 @@ vignette: >
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rtpcr <img src="man/figures/logo.png" align="right" height="140/"/>
+# shiny_rtpcr  
 
 
-<!-- badges: start -->
-
-[![](https://cranlogs.r-pkg.org/badges/grand-total/rtpcr)](https://cran.rstudio.com/web/packages/rtpcr/index.html)
-[![R package version](https://img.shields.io/github/r-package/v/mirzaghaderi/rtpcr)](
-https://github.com/mirzaghaderi/rtpcr
-)
-[![CRAN version](https://www.r-pkg.org/badges/version/rtpcr)](
-https://CRAN.R-project.org/package=rtpcr
-)
-
-⁠<!-- badges: end -->
 
 
 ```{r setup, include = FALSE, fig.align='center', warning = F, message=F}
@@ -35,11 +24,6 @@ the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from
 
 
 ![Figure 1: shiny_rtpcr is a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/](man/figures/shiny_rtpcr.png){.center width="100%"}
-
-
-
-
-
 
 # Running the_rtpcr offline 
 
