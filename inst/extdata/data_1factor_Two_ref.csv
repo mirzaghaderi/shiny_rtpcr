@@ -1,0 +1,7 @@
+Condition,Rep,DER5,Ct_DER5,Actin,Ct_Actin,HPRT,Ct_HPRT
+control,1,2,31.26,2,28.74,2,29
+control,2,2,31.01,2,28.85,2,28
+control,3,2,30.97,2,28.63,2,28.5
+treatment,1,2,32.65,2,28.84,2,27.8
+treatment,2,2,32.03,2,29.08,2,29.2
+treatment,3,2,32.4,2,28.76,2,28.5
