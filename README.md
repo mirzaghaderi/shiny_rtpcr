@@ -78,7 +78,14 @@ The package supports **one or more target or reference gene(s)**, supplied as ef
 
 
 
-![Figure 2: A sample input data with one experimetal factor, replicate column and E/Ct information of target and reference genes](man/figures/sampleData1.png){.center width="80%"}
+<figure>
+<img src="man/figures/sampleData1.png" class="center"
+style="width:80.0%"
+alt="Figure 2: A sample input data with one experimental factor, replicate column and E/Ct information of target and reference genes" />
+<figcaption aria-hidden="true">Figure 2: A sample input data with one
+experimental factor, replicate column and E/Ct information of target and
+reference genes</figcaption>
+</figure>
 
 <br>
 
@@ -86,7 +93,14 @@ If there is no blocking factor, the block column should be omitted. However, a c
 
 <br>
 
-![Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes](man/figures/dataStructure1.png){.center width="100%"}
+<figure>
+<img src="man/figures/dataStructure1.png" class="center"
+style="width:100.0%"
+alt="Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes" />
+<figcaption aria-hidden="true">Figure 3: A sample input data with two
+experimetal factors, blocking factor, replicate column and E/Ct
+information of target and reference genes</figcaption>
+</figure>
 
 
 #### NOTE 1
