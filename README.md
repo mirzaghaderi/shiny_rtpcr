@@ -328,65 +328,6 @@ below):
 | y.axis line width | `p + theme(axis.line.y = element_line(linewidth = 0))` |
 | panel line width | `theme(panel.border = element_rect(color = "black", linewidth = 1))` |
 
-### Plot output: example 2
-
-``` r
-data <- read.csv(system.file("extdata", "data_2factorBlock.csv", package = "rtpcr"))
-res <- ANOVA_DCt(data, 
-      numOfFactors = 2,
-      block = "block",
-      numberOfrefGenes = 1)
-
-df <- res$relativeExpression
-
-plotFactor(
-  data = df,
-  x_col = "Concentration",
-  y_col = "RE",
-  group_col = "Type",
-  Lower.se_col = "Lower.se.RE",
-  Upper.se_col = "Upper.se.RE",
-  letters_col = "sig",
-  letters_d = 0.2,
-  fill_colors = c("aquamarine4", "gold2"),
-  color = "black",
-  alpha = 1,
-  col_width = 0.7,
-  dodge_width = 0.7,
-  base_size = 16, 
-  legend_position = c(0.2, 0.8))
-```
-
-<figure>
-<img src="man/figures/Rplot01.png" class="center" height="300"
-alt="Figure 9: The bar plots of the relative expression expression and log2 fold change of a gene produced by the plotFactor() function." />
-<figcaption aria-hidden="true">Figure 9: The bar plots of the relative
-expression expression and log2 fold change of a gene produced by the
-<code>plotFactor()</code> function.</figcaption>
-</figure>
-
-### Plot output: example 3
-
-
-<figure>
-<img src="man/figures/Rplot03.png" class="center" height="600"
-alt="Figure 10: The bar plot of the fold change expression of 6 genes produced by the plotFactor() function." />
-<figcaption aria-hidden="true">Figure 10: The bar plot of the fold
-change expression of 6 genes produced by the <code>plotFactor()</code>
-function.</figcaption>
-</figure>
-
-# Post-hoc analysis
-
-Although all the expression analysis functions perform statistical
-comparisons for the levels of the analysed factor, further post-hoc
-analysis is still possible. The `Means_DDCt()` function performs
-post-hoc comparisons using a fitted model object produced by
-`ANOVA_DCt()` and `ANOVA_DDCt()`. It applies pairwise statistical
-comparisons of relative expression (RE) values for user-specified
-effects via the `specs` argument. Supported effects include simple
-effects, interactions, and slicing, provided the underlying model is an
-ANOVA. For ANCOVA models, only simple effects are returned.
 
 
 # Checking normality of residuals
@@ -395,24 +336,22 @@ If the residuals from a `t.test` or an `lm` object are not normally
 distributed, the significance results might be violated. In such cases,
 non-parametric tests can be used. For example, the Mann–Whitney test -
 also known as the Wilcoxon rank-sum test, (implemented via
-`WILCOX_DDCt()` in the rtpcr package), is an alternative to t.test, and
-`kruskal.test()` is an alternative to one-way analysis of variance.
+`WILCOX_DDCt` tab), is an alternative to t.test, and
+`kruskal.test` is an alternative to one-way analysis of variance.
 These tests assess differences between population medians using
-independent groups. However, the rtpcr `TTEST_DDCt()` function includes
+independent groups. However, the rtpcr `TTEST_DDCt` tab includes
 the `var.equal` argument. When set to `FALSE`, performs `t.test` under
-the unequal variances hypothesis. Residuals from `ANOVA_DCt()` and
-`ANOVA_DDCt()` functions can be extracted from `lm`and plotted as
-follow:
+the unequal variances hypothesis. Residuals from `ANOVA_DCt` and
+`ANOVA_DDCt` tabs can observed in the output for each analysed gene.
 
 
 # Mean of technical replicates
 
 Calculating the mean of technical replicates and generating an output
 table suitable for subsequent expression analysis can be accomplished
-using the `meanTech()` function. The input dataset must follow the
+using the `meanTech` tab. The input dataset must follow the
 column structure illustrated in the example data below. Columns used for
-grouping should be explicitly specified via the `groups` argument of the
-`meanTech()` function.
+grouping should be specified in the `groups` argument.
 
 
 
