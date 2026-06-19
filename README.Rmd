@@ -31,12 +31,10 @@ library(rtpcr)
 ```
 
 
-rtpcr is a tool for analysis of RT-qPCR gene expression data using delta Ct (dCt) 
-and delta delta Ct (ddCt) methods, including t-tests and ANOVA, repeated-measures models, and publication-ready visualizations. The package implements a general calculation method adopted from Ganger et al. (2017) and Taylor et al. (2019), covering both the Livak and Pfaffl methods. See the [calculation method](Method.md) for details.
+the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from the rtpcr package that provide a framework for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application simplifies complex, multi-step analytical workflows, including technical replicate averaging, primer efficiency validation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr empowers researchers to generate publication-ready data and visualizations without requiring command-line programming expertise. 
 
 
-
-![Figure 1: rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/](man/figures/shiny_rtpcr.png){.center width="100%"}
+![Figure 1: shiny_rtpcr is a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/](man/figures/shiny_rtpcr.png){.center width="100%"}
 
 
 
@@ -63,17 +61,15 @@ In the rtpcr package, functions with _DDCt at the end of their name (`ANOVA_DDCt
 
 | Function            | Description                                                  |
 |---------------------|--------------------------------------------------------------|
-| `ANOVA_DCt()`     | dCt expression analysis for all the level combinations of factor(s). |
-| `ANOVA_DDCt()`    | ddCt expression analysis for levels of a factor (generally or per levels of another factors(s)), specified by the `specs` argument.  |
-| `TTEST_DDCt()`    | ddCt method *t*.test analysis for paired or unpaired samples. |
-| `WILCOX_DDCt()`         | ddCt method wilcox.test analysis for paired or unpaired samples.    |
-| `plotFactor()`        | Bar plot of gene expression for one-, two- or three-factor experiments
-| `Means_DDCt()`        | Pairwise comparison of RE values for any user-specified effect |
-| `efficiency()`        | Amplification efficiency statistics and standard curves     |
-| `meanTech()`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
-| `multiplot()`         | Combine multiple ggplot objects into a single layout   |
-| `compute_wDCt()`	 | Cleaning data and weighted delta Ct (wDCt) calculation using the geometric mean of reference gene(s).   |
-| `long_to_wide()`	 | Converts a 4-column qPCR long data format (Condition, Gene, E, Ct) to wide format    |
+| `ANOVA_DCt`     | dCt expression analysis for all the level combinations of factor(s). |
+| `ANOVA_DDCt`    | ddCt expression analysis for levels of a factor (generally or per levels of another factors(s)), specified by the `specs` argument.  |
+| `TTEST_DDCt`    | ddCt method *t*.test analysis for paired or unpaired samples. |
+| `WILCOX_DDCt`         | ddCt method wilcox.test analysis for paired or unpaired samples.    |
+| `plotFactor`        | Bar plot of gene expression for one-, two- or three-factor experiments
+| `Means_DDCt`        | Pairwise comparison of RE values for any user-specified effect |
+| `efficiency`        | Amplification efficiency statistics and standard curves     |
+| `meanTech`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
+| `multiplot`         | Combine multiple ggplot objects into a single layout   |
 
 
 # Quick start

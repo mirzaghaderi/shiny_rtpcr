@@ -13,31 +13,21 @@ version](https://www.r-pkg.org/badges/version/rtpcr)](https://CRAN.R-project.org
 
 ⁠<!-- badges: end -->
 
-rtpcr is a tool for analysis of RT-qPCR gene expression data using delta
-Ct (dCt) and delta delta Ct (ddCt) methods, including t-tests and ANOVA,
-repeated-measures models, and publication-ready visualizations. The
-package implements a general calculation method adopted from Ganger et
-al. (2017) and Taylor et al. (2019), covering both the Livak and Pfaffl
-methods. See the [calculation method](Method.md) for details.
+the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from the rtpcr package that provide a framework for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application simplifies complex, multi-step analytical workflows, including technical replicate averaging, primer efficiency validation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr empowers researchers to generate publication-ready data and visualizations without requiring command-line programming expertise. 
 
-<figure>
-<img src="man/figures/shiny_rtpcr.png" class="center"
-style="width:100.0%"
-alt="Figure 1: rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/" />
-<figcaption aria-hidden="true">Figure 1: rtpcr is now available as
-shiny_rtpcr, a web application developed using R/Shiny for interactive
-analysis of qPCR data at <a
-href="https://mirzaghaderi.shinyapps.io/rtpcr/"
-class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a></figcaption>
-</figure>
 
-# Running the shiny version of the rtpcr offline
+![Figure 1: shiny_rtpcr is a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/](man/figures/shiny_rtpcr.png){.center width="100%"}
 
-If you have problem with connecting to
-<https://mirzaghaderi.shinyapps.io/rtpcr/>, you can follow the following
-steps in Rstudio to run the shiny version of the rtpcr offline.
 
-``` r
+
+
+
+
+# Running the shiny version of the rtpcr offline 
+
+If you have problem with connecting to https://mirzaghaderi.shinyapps.io/rtpcr/, you can follow the following steps in Rstudio to run the shiny version of the rtpcr offline.
+
+```{r eval= F}
 install.packages("rtpcr")
 install.packages("shiny")
 library(shiny)
@@ -46,101 +36,51 @@ library(rtpcr)
 runApp(system.file("shinyapp/app.R", package = "rtpcr"))
 ```
 
+
+
 # Functions
+In the rtpcr package, functions with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform expression analysis based on the delta delta Ct (ddCt) method, while `ANOVA_DCt` function analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. Mean comparisons is actually performed by the `emmeans()` function using the resulting model from the ANOVA analysis. 
 
-In the rtpcr package, functions with \_DDCt at the end of their name
-(`ANOVA_DDCt()`, `TTEST_DDCt()`, `WILCOX_DDCt()`) perform expression
-analysis based on the delta delta Ct (ddCt) method, while `ANOVA_DCt()`
-function analyze gene expression using the delta Ct (dCt) method. The
-ANOVA prefix indicates that the function uses analysis of variance
-(using a default full factorial model or a user defined model) for
-statistical analysis, and mean comparisons. Mean comparisons is actually
-performed by the `emmeans()` function using the resulting model from the
-ANOVA analysis.
+| Function            | Description                                                  |
+|---------------------|--------------------------------------------------------------|
+| `ANOVA_DCt`     | dCt expression analysis for all the level combinations of factor(s). |
+| `ANOVA_DDCt`    | ddCt expression analysis for levels of a factor (generally or per levels of another factors(s)), specified by the `specs` argument.  |
+| `TTEST_DDCt`    | ddCt method *t*.test analysis for paired or unpaired samples. |
+| `WILCOX_DDCt`         | ddCt method wilcox.test analysis for paired or unpaired samples.    |
+| `plotFactor`        | Bar plot of gene expression for one-, two- or three-factor experiments
+| `Means_DDCt`        | Pairwise comparison of RE values for any user-specified effect |
+| `efficiency`        | Amplification efficiency statistics and standard curves     |
+| `meanTech`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
+| `multiplot`         | Combine multiple ggplot objects into a single layout   |
 
-| Function | Description |
-|----|----|
-| `ANOVA_DCt()` | dCt expression analysis for all the level combinations of factor(s). |
-| `ANOVA_DDCt()` | ddCt expression analysis for levels of a factor (generally or per levels of another factors(s)), specified by the `specs` argument. |
-| `TTEST_DDCt()` | ddCt method *t*.test analysis for paired or unpaired samples. |
-| `WILCOX_DDCt()` | ddCt method wilcox.test analysis for paired or unpaired samples. |
-| `plotFactor()` | Bar plot of gene expression for one-, two- or three-factor experiments |
-| `Means_DDCt()` | Pairwise comparison of RE values for any user-specified effect |
-| `efficiency()` | Amplification efficiency statistics and standard curves |
-| `meanTech()` | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates. |
-| `multiplot()` | Combine multiple ggplot objects into a single layout |
-| `compute_wDCt()` | Cleaning data and weighted delta Ct (wDCt) calculation using the geometric mean of reference gene(s). |
-| `long_to_wide()` | Converts a 4-column qPCR long data format (Condition, Gene, E, Ct) to wide format |
 
-# Quick start
+# Input data structure 
 
-### Installing and loading
+For relative expression analysis (using `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DCt()`, and `ANOVA_DDCt()` functions), the amplification efficiency (`E`) and `Ct` or `Cq` values (the mean of technical replicates) is used for the input table. If the `E` values are  not available you should use '2' instead representing the complete primer amplification efficiency. The input data table should include the following columns from left to wright:
 
-The `rtpcr` package can be installed by running the following code in R:
 
-from CRAN:
-
-``` r
-# Installing from CRAN
-install.packages("rtpcr")
-
-# Loading the package
-library(rtpcr)
-```
-
-Or from from GitHub (developing version):
-
-``` r
-devtools::install_github("mirzaghaderi/rtpcr", build_vignettes = TRUE)
-```
-
-# Input data structure
-
-For relative expression analysis (using `TTEST_DDCt()`, `WILCOX_DDCt()`,
-`ANOVA_DCt()`, and `ANOVA_DDCt()` functions), the amplification
-efficiency (`E`) and `Ct` or `Cq` values (the mean of technical
-replicates) is used for the input table. If the `E` values are not
-available you should use ‘2’ instead representing the complete primer
-amplification efficiency. The input data table should include the
-following columns from left to right:
-
-1.  Experimental condition columns (and one block if available [NOTE
-    1](#note-1))
+1.  Experimental condition columns (and one block if
+    available [NOTE 1](#note-1))
 2.  Replicates information (biological replicates or subjects; see [NOTE
     2](#note-2), and [NOTE 3](#note-3))  
 3.  Target genes efficiency and Ct values (a pair column for each gene).
 4.  Reference genes efficiency and Ct values (a pair column for each
     gene) [NOTE 4](#note-4).
 
-The package supports **one or more target or reference gene(s)**,
-supplied as efficiency–Ct column pairs. Reference gene columns must
-always appear last. Two sample input data sets are presented below.
+The package supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below.
 
-<figure>
-<img src="man/figures/sampleData1.png" class="center"
-style="width:80.0%"
-alt="Figure 2: A sample input data with one experimental factor, replicate column and E/Ct information of target and reference genes" />
-<figcaption aria-hidden="true">Figure 2: A sample input data with one
-experimental factor, replicate column and E/Ct information of target and
-reference genes</figcaption>
-</figure>
+
+
+![Figure 2: A sample input data with one experimetal factor, replicate column and E/Ct information of target and reference genes](man/figures/sampleData1.png){.center width="80%"}
 
 <br>
 
-If there is no blocking factor, the block column should be omitted.
-However, a column for biological replicates (which may be named “Rep”,
-“id” or similar) is always required.
+If there is no blocking factor, the block column should be omitted. However, a column for biological replicates (which may be named "Rep", "id" or similar) is always required.
 
 <br>
 
-<figure>
-<img src="man/figures/dataStructure1.png" class="center"
-style="width:100.0%"
-alt="Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes" />
-<figcaption aria-hidden="true">Figure 3: A sample input data with two
-experimetal factors, blocking factor, replicate column and E/Ct
-information of target and reference genes</figcaption>
-</figure>
+![Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes](man/figures/dataStructure1.png){.center width="100%"}
+
 
 #### NOTE 1
 
