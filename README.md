@@ -16,9 +16,16 @@ version](https://www.r-pkg.org/badges/version/rtpcr)](https://CRAN.R-project.org
 the shiny_rtpcr tool provides an interactive graphical user interface (GUI) from the rtpcr package that provide a framework for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application simplifies complex, multi-step analytical workflows, including technical replicate averaging, primer efficiency validation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr empowers researchers to generate publication-ready data and visualizations without requiring command-line programming expertise. 
 
 
-![Figure 1: shiny_rtpcr is a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/](man/figures/shiny_rtpcr.png){.center width="100%"}
-
-
+<figure>
+<img src="man/figures/shiny_rtpcr.png" class="center"
+style="width:100.0%"
+alt="Figure 1: shiny_rtpcr, is a web application developed using R/Shiny for interactive analysis of qPCR data at https://mirzaghaderi.shinyapps.io/rtpcr/" />
+<figcaption aria-hidden="true">Figure 1: rtpcr is now available as
+shiny_rtpcr, a web application developed using R/Shiny for interactive
+analysis of qPCR data at <a
+href="https://mirzaghaderi.shinyapps.io/rtpcr/"
+class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a></figcaption>
+</figure>
 
 
 
