@@ -261,18 +261,16 @@ also known as the Wilcoxon rank-sum test, (implemented via
 `kruskal.test` is an alternative to one-way analysis of variance.
 These tests assess differences between population medians using
 independent groups. However, the rtpcr `TTEST_DDCt` tab includes
-the `var.equal` argument. When set to `FALSE`, performs `t.test` under
+the `Equal variances` argument. When is not selected, performs `t.test` under
 the unequal variances hypothesis. Residuals from `ANOVA_DCt` and
-`ANOVA_DDCt` tabs can observed in the output for each analysed gene.
+`ANOVA_DDCt` tabs can observed in the output for each analyzed gene.
 
 
 # Mean of technical replicates
 
 Calculating the mean of technical replicates and generating an output
-table suitable for subsequent expression analysis can be accomplished
-using the `meanTech` tab. The input dataset must follow the
-column structure illustrated in the example data below. Columns used for
-grouping should be specified in the `groups` argument.
+table suitable for subsequent expression analysis is done
+using the `meanTech` tab.
 
 
 # Contact
