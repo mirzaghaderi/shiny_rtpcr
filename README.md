@@ -16,10 +16,15 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
   </figcaption>
 </figure>
 
-| |
-| :--- |
-| <img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" /><br><br>**Figure 1:** rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at [https://mirzaghaderi.shinyapps.io/rtpcr/](https://mirzaghaderi.shinyapps.io/rtpcr/) |
-
+<details open style="display: block; border: 2px solid #000000; padding: 15px;">
+  <summary style="display: none;">Figure 1</summary>
+  <figure>
+    <img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" />
+    <figcaption aria-hidden="true" style="margin-top: 10px;">
+      Figure 1: rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
+    </figcaption>
+  </figure>
+</details>
 
 # Running the shiny_rtpcr offline 
 
