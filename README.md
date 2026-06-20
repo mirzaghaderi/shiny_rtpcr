@@ -228,9 +228,7 @@ include fold change and corresponding statistics. The output of
 model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
 
-<br>
-
-<figure>
+<figure style="margin-top: 30px;">
 <img src="man/figures/ddCt3.jpg" class="center" style="width:100.0%"
 alt="" /><figcaption aria-hidden="true">Figure 6: The output of <code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
