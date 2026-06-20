@@ -8,9 +8,7 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
 
 
 <figure>
-  <kbd>
     <img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" />
-  </kbd>
   <figcaption aria-hidden="true">
     Figure 1: <code>shiny_rtpcr</code> is a web application developed using R/Shiny for interactive analysis of qPCR data. It is the shiny version of the <code>rtpcr</code> R package available at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
   </figcaption>
