@@ -250,14 +250,14 @@ alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be
 
 | Task | Example Code |
 |----|----|
-| Change y-axis label | `p + ylab("Relative expression ($\Delta\Delta Ct$ method)")` |
-| Add a horizontal reference line | `p + geom_hline(yintercept = 0, linetype = "dashed")` |
-| Change y-axis limits | `p + scale_y_continuous(expand = expansion(mult = c(0, 0.1)))` |
-| Relabel x-axis | `p + scale_x_discrete(labels = c("A" = "Control", "B" = "Treatment"))` |
-| Change fill colors | `p + scale_fill_brewer(palette = "Set2")` |
-| number of facets per row | `p + facet_wrap(~ A, ncol = 4)` |
-| x.axis line width | `p + theme(axis.line.x = element_line(linewidth = 0))` |
-| y.axis line width | `p + theme(axis.line.y = element_line(linewidth = 0))` |
+| Change y-axis label | `+ ylab("Relative expression ($\Delta\Delta Ct$ method)")` |
+| Add a horizontal reference line | `+ geom_hline(yintercept = 0, linetype = "dashed")` |
+| Change y-axis limits | `+ scale_y_continuous(expand = expansion(mult = c(0, 0.1)))` |
+| Relabel x-axis | `+ scale_x_discrete(labels = c("A" = "Control", "B" = "Treatment"))` |
+| Change fill colors | `+ scale_fill_brewer(palette = "Set2")` |
+| number of facets per row | `+ facet_wrap(~ A, ncol = 4)` |
+| x.axis line width | `+ theme(axis.line.x = element_line(linewidth = 0))` |
+| y.axis line width | `+ theme(axis.line.y = element_line(linewidth = 0))` |
 | panel line width | `theme(panel.border = element_rect(color = "black", linewidth = 1))` |
 
 
