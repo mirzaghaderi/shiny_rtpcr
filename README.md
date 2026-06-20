@@ -4,7 +4,7 @@
 # shiny_rtpcr 
 
 
-the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr package [rtpcr package](https://github.com/mirzaghaderi/rtpcr) that is used for efficiency-weighted relative expression analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application performs technical replicate averaging, primer efficiency calculation, and multi-factor ANOVA and mixed-effects modeling. shiny_rtpcr also generates publication-ready barplots. shiny_rtpcr is available at https://mirzaghaderi.shinyapps.io/rtpcr/.
+the shiny_rtpcr tool is an interactive graphical user interface from the [rtpcr package](https://github.com/mirzaghaderi/rtpcr) that is used for efficiency-weighted RT-qPCR data analysis using both the delta Ct (dCt) and delta delta Ct (ddCt) methods, accommodating parametric and non-parametric statistics alongside linear mixed-effect models. The application performs technical replicate averaging, primer efficiency calculation, and multi-factor ANOVA and mixed-effects modeling, and generates publication-ready bar plots. The shiny_rtpcr tool is available at https://mirzaghaderi.shinyapps.io/rtpcr/.
 
 
 <figure>
