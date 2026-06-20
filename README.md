@@ -236,7 +236,7 @@ alt="" /><figcaption aria-hidden="true">Figure 6: The output of <code>ANOVA_DDCt
 </figure>
 
 
-# Output plots?
+# Output plots
 
 Bar plots can be generated from the output expression tables using the `plotFactor` tab. The plot can further be edited by adding new layers (see examples
 below):
