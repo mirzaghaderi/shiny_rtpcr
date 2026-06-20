@@ -34,7 +34,7 @@ runApp(system.file("shinyapp/app.R", package = "rtpcr"))
 
 
 #  Functional tabs
-In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform delta delta Ct (ddCt) expression analysis, while `ANOVA_DCt` analyze gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. 
+In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`, `TTEST_DDCt`, `WILCOX_DDCt`) perform delta delta Ct (ddCt) expression analysis, while `ANOVA_DCt` analyzes gene expression using the delta Ct (dCt) method. The ANOVA prefix indicates that the function uses analysis of variance (using a default full factorial model or a user defined model) for statistical analysis, and mean comparisons. 
 
 | Tabs            | Description                                                  |
 |---------------------|--------------------------------------------------------------|
@@ -52,12 +52,12 @@ In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`,
 Input data should be in csv format. For relative expression analysis using `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs, the input data table should include the following columns from left to wright:
 
 
-1.  Experimental condition columns (and one block if available [NOTE 1](#note-1))
+1.  Experimental condition columns, and one block (plate) if data comes from different plates [NOTE 1](#note-1).
 2.  Replicates information (biological replicates or subjects; see [NOTE 2](#note-2), and [NOTE 3](#note-3))  
 3.  Target genes efficiency and Ct values (a pair column for each gene).
 4.  Reference genes efficiency and Ct values (a pair column for each gene).
 
-Each functional tab include a sample data that if clicked, appropriate argument values is automatically entered. The tool supports **one or more target or reference gene(s)**, supplied as efficiency–Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below. Complete amplification efficiency (E) in the input data is denoted by 2. This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and 0.70% amplification efficiencies.
+Each functional tab include a sample data that if clicked, appropriate argument values is automatically entered. The tool supports **one or more target or reference gene(s)**, supplied as efficiency/Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below. Complete amplification efficiency (E) in the input data is denoted by 2. This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and 0.70% amplification efficiencies.
 
 
 
