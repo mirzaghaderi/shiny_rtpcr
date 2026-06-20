@@ -243,8 +243,10 @@ below):
 
 <figure>
 <img src="man/figures/ddCt4.jpg" class="center" style="width:100.0%"
-alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be edited by adding new layers in the indicated rectangle.</figcaption>
+alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be edited by adding new ggplot layer codes (Examples in  table below) in the indicated rectangle.</figcaption>
 </figure>
+
+<p><br></p>
 
 | Task | Example Code |
 |----|----|
