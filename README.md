@@ -157,7 +157,7 @@ alt="Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by AN
 <figcaption aria-hidden="true">Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes.</figcaption>
 </figure>
 
-</br>
+<br>
 
 
 **Single- or multi-factor experiments:** `ANOVA_DDCt` and `ANOVA_DCt` tabs are used for single- or multi-factor experiments. By
@@ -227,6 +227,12 @@ relative expression analysis (including <code>TTEST_DDCt</code>,
 include fold change and corresponding statistics. The output of
 <code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm
 model, residuals, raw data and ANOVA table for each gene.</figcaption>
+</figure>
+
+<figure>
+<img src="man/figures/ddCt3.jpg" class="center" style="width:100.0%"
+alt="Figure 6: The output of ANOVA_DDCt(), and ANOVA_DCt() also include lm model, residuals, raw data and ANOVA table for each gene." />
+<figcaption aria-hidden="true">Figure 5: The output of <code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
 
 
