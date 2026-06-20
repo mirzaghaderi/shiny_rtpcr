@@ -12,7 +12,7 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
     <img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" />
   </kbd>
   <figcaption aria-hidden="true">
-    Figure 1: rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
+    Figure 1: <code>shiny_rtpcr</code> is a web application developed using R/Shiny for interactive analysis of qPCR data. It is the shiny version of the <code>rtpcr</code> R package available at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
   </figcaption>
 </figure>
 
@@ -64,9 +64,8 @@ Each functional tab include a sample data that if clicked, appropriate argument 
 <figure>
 <img src="man/figures/sampleData1.png" class="center"
 style="width:80.0%"
-alt="Figure 2: A sample input data with one experimental factor, replicate column and E/Ct information of target and reference genes" />
-<figcaption aria-hidden="true">Figure 2: A sample input data with one
-experimental factor, replicate column and E/Ct information of target and
+alt="" />
+<figcaption aria-hidden="true">Figure 2: A sample input data with one experimental factor, replicate column and E/Ct information of target and
 reference genes</figcaption>
 </figure>
 
@@ -149,7 +148,7 @@ doesn’t follow t.test assumptions, the `WILCOX_DDCt()` function can be used in
 <figure>
 <img src="man/figures/ddCt1.jpg" class="center"
 style="width:100.0%"
-alt="Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes." />
+alt="" />
 <figcaption aria-hidden="true">Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes.</figcaption>
 </figure>
 
@@ -254,7 +253,7 @@ alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be
 | number of facets per row | `+ facet_wrap(~ A, ncol = 4)` |
 | x.axis line width | `+ theme(axis.line.x = element_line(linewidth = 0))` |
 | y.axis line width | `+ theme(axis.line.y = element_line(linewidth = 0))` |
-| panel line width | `theme(panel.border = element_rect(color = "black", linewidth = 1))` |
+| panel line width | `+ theme(panel.border = element_rect(color = "black", linewidth = 1))` |
 
 
 
