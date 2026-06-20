@@ -10,7 +10,7 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
 <figure>
     <img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" />
   <figcaption aria-hidden="true">
-    Figure 1: <code>shiny_rtpcr</code> is a web application developed using R/Shiny for interactive analysis of qPCR data. It is the shiny version of the <code>rtpcr</code> R package available at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
+    Figure 1: <code>shiny_rtpcr</code> is a web application developed using R/Shiny for interactive analysis of qPCR data. It is the shiny version of the <code>rtpcr</code> R package, and is available at <a href="https://mirzaghaderi.shinyapps.io/rtpcr/" class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a>
   </figcaption>
 </figure>
 
@@ -18,7 +18,7 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
 
 # Running the shiny_rtpcr offline 
 
-If you have problem with connecting to the shiny_rtpcr web page, follow these steps in Rstudio to run the shiny_rtpcr offline.
+If you have problem with connecting to the shiny_rtpcr web page, follow these steps in Rstudio to run the shiny_rtpcr tool offline.
 
 ```{r eval= F}
 install.packages("rtpcr")
@@ -47,7 +47,7 @@ In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`,
 
 # Input data structure 
 
-Input data should be in csv format. For relative expression analysis using `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs, the input data table should include the following columns from left to wright:
+The input data should be in csv format. For relative expression analysis using `TTEST_DDCt`, `WILCOX_DDCt`, `ANOVA_DCt`, and `ANOVA_DDCt` tabs, the input data table should include the following columns from left to wright:
 
 
 1.  Experimental condition columns, and one block (plate) if data comes from different plates [NOTE 1](#note-1).
@@ -55,7 +55,7 @@ Input data should be in csv format. For relative expression analysis using `TTES
 3.  Target genes efficiency and Ct values (a pair column for each gene).
 4.  Reference genes efficiency and Ct values (a pair column for each gene).
 
-Each functional tab include a sample data that if clicked, appropriate argument values is automatically entered. The tool supports **one or more target or reference gene(s)**, supplied as efficiency/Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below. Complete amplification efficiency (E) in the input data is denoted by 2. This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and 0.70% amplification efficiencies.
+Each functional tab in the shiny_rtpcr tool include a sample data that if clicked, the table is appeared and appropriate argument values is automatically entered. The tool supports **one or more target or reference gene(s)**, supplied as efficiency/Ct column pairs. Reference gene columns must always appear last. Two sample input data sets are presented below. Complete amplification efficiency (E) in the input data is denoted by 2. This means that 2 indicates 100%, and 1.85 and 1.70 indicate 0.85% and 0.70% amplification efficiencies.
 
 
 
@@ -104,7 +104,7 @@ sampled at specific time points.
 
 #### NOTE 3
 
-Your data table may also include a column of technical replicates. in this case, the technical replicate column should be located immediately after the biological replicate column. In this case, the `meanTech` tab should be applied first to calculate the mean of the technical replicates. The resulting collapsed table is then used as the input for expression analysis. see the samople data in the `meanTech` tab.
+Your data table may also include a column of technical replicates. in this case, the technical replicate column should be located immediately after the biological replicate column. for such a data set, the `meanTech` tab should be applied first to calculate the mean of the technical replicates. The resulting collapsed table is then used as the input for expression analysis. see the sample data in the `meanTech` tab.
 
 
 
