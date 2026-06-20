@@ -45,7 +45,6 @@ In the shiny_rtpcr tool, tabs with _DDCt at the end of their name (`ANOVA_DDCt`,
 | `plotFactor`        | Bar plot of gene expression for one-, two- or three-factor experiments
 | `efficiency`        | Amplification efficiency statistics and standard curves     |
 | `meanTech`          | Calculate mean of technical replicates. This is used if your data needs averaging over biological replicates.     |
-| `multiplot`         | Combine multiple ggplot objects into a single layout   |
 
 
 # Input data structure 
