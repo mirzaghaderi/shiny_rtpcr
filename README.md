@@ -17,10 +17,6 @@ the shiny_rtpcr tool is an interactive graphical user interface from the rtpcr p
 </figure>
 
 
-<kbd>
-<img src="man/figures/shiny_rtpcr.png" style="width: 100%;" alt="Figure 1" /><br></kbd>Figure 1: rtpcr is now available as shiny_rtpcr, a web application developed using R/Shiny for interactive analysis of qPCR data at [https://mirzaghaderi.shinyapps.io/rtpcr/](https://mirzaghaderi.shinyapps.io/rtpcr/)
-
-
 # Running the shiny_rtpcr offline 
 
 If you have problem with connecting to the shiny_rtpcr web page, follow these steps in Rstudio to run the shiny_rtpcr offline.
