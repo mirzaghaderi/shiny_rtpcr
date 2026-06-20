@@ -241,6 +241,11 @@ alt="" /><figcaption aria-hidden="true">Figure 6: The output of <code>ANOVA_DDCt
 The plot can further be edited by adding new layers (see examples
 below):
 
+<figure>
+<img src="man/figures/ddCt4.jpg" class="center" style="width:100.0%"
+alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be edited by adding new layers in the indicated rectangle.</figcaption>
+</figure>
+
 | Task | Example Code |
 |----|----|
 | Change y-axis label | `p + ylab("Relative expression ($\Delta\Delta Ct$ method)")` |
