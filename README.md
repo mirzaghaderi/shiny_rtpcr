@@ -205,21 +205,6 @@ measure model such as `wDCt ~ Treatment + ( 1 | id)` or
 
 
 
-<br>
-
-
-<figure>
-<img src="man/figures/ddCt2.jpg" class="center"
-style="width:100.0%"
-alt="Figure 4: The expression analysis output table from the `ANOVA_DDCt` tab. All the functions for relative expression analysis (including `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DDCt()`, and `ANOVA_DCt()`) return the relative expression table which include fold change and corresponding statistics." />
-<figcaption aria-hidden="true">Figure 4: The expression analysis output table from the `ANOVA_DDCt` tab. All the functions for relative expression analysis (including `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DDCt()`, and `ANOVA_DCt()`) return the relative expression table which include fold change and corresponding statistics.</figcaption>
-</figure>
-
-<br>
-
-
-
-
 # Output
 
 ## Data output
