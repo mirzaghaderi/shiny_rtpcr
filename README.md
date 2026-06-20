@@ -63,7 +63,7 @@ Each functional tab include a sample data that if clicked, appropriate argument 
 
 <figure>
 <img src="man/figures/sampleData1.png" class="center"
-style="width:80.0%"
+style="width:60.0%"
 alt="" />
 <figcaption aria-hidden="true">Figure 2: A sample input data with one experimental factor, replicate column and E/Ct information of target and
 reference genes</figcaption>
