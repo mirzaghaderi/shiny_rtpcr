@@ -23,7 +23,7 @@ class="uri">https://mirzaghaderi.shinyapps.io/rtpcr/</a></figcaption>
 
 # Running the shiny_rtpcr offline 
 
-If you have problem with connecting to https://mirzaghaderi.shinyapps.io/rtpcr/, follow these steps in Rstudio to run the shiny_rtpcr offline.
+If you have problem with connecting to the shiny_rtpcr web page, follow these steps in Rstudio to run the shiny_rtpcr offline.
 
 ```{r eval= F}
 install.packages("rtpcr")
@@ -87,9 +87,9 @@ If there is no blocking factor, the block column should be omitted. However, a c
 <figure>
 <img src="man/figures/dataStructure1.png" class="center"
 style="width:100.0%"
-alt="Figure 3: A sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes" />
+alt="Figure 3: A sample input data with two experimental factors, blocking factor, replicate column and E/Ct information of target and reference genes" />
 <figcaption aria-hidden="true">Figure 3: A sample input data with two
-experimetal factors, blocking factor, replicate column and E/Ct
+experimental factors, blocking factor, replicate column and E/Ct
 information of target and reference genes</figcaption>
 </figure>
 
@@ -142,16 +142,29 @@ dilution ratios, followed by the Ct value columns for each gene.
 ### Relative expression
 
 **Single factor experiment with two levels (e.g. Control and
-Treatment):** `TTEST_DDCt` function is used for relative expression
-analysis in treatment condition compared to the control group. Both
-paired and unpaired experimental designs are supported. if the data
+Treatment):** `TTEST_DDCt` function is used for relative expression (fold change)
+analysis in treatment condition compared to the control group. Both paired and unpaired experimental designs are supported. if the data
 doesn’t follow t.test assumptions, the `WILCOX_DDCt()` function can be used instead.
 
-**Single- or multi-factor experiments:** In these cases, `ANOVA_DDCt` and `ANOVA_DCt` tabs are used. By
+
+<br>
+
+
+<figure>
+<img src="man/figures/ddCt1.jpg" class="center"
+style="width:100.0%"
+alt="Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes" />
+<figcaption aria-hidden="true">Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes</figcaption>
+</figure>
+
+<br>
+
+
+**Single- or multi-factor experiments:** `ANOVA_DDCt` and `ANOVA_DCt` tabs are used for single- or multi-factor experiments. By
 default, statistical analysis is performed based on uni- or multi-factorial Completely Randomized Design (CRD) or Randomized
 Complete Block Design (RCBD) design based on `numOfFactors` and the
 availability of `block`. However, optional custom model formula as a
-character string (see table below) can be supplied to these functions. If provided, this
+character string (see table below) can be supplied to these functions in the red arrow rectangle (Figure 4). If provided, this
 overrides the default formula (full factorial CRD or RCBD design). The
 formula uses `wDCt` as the response variable (wDCt is automatically
 created by the function). For mixed models, include random effects using
@@ -192,20 +205,18 @@ measure model such as `wDCt ~ Treatment + ( 1 | id)` or
 
 
 
-
 <br>
 
 
 <figure>
-<img src="man/figures/ddCt1.png" class="center"
+<img src="man/figures/ddCt2.jpg" class="center"
 style="width:100.0%"
-alt="Figure 4:Sample input data with two experimetal factors, blocking factor, replicate column and E/Ct information of target and reference genes used to be analyzed by ddCT method" />
-<figcaption aria-hidden="true">Figure 4: Sample input data with two
-experimetal factors, blocking factor, replicate column and E/Ct
-information of target and reference genes used to be analyzed by ddCT method</figcaption>
+alt="Figure 4: The expression analysis output table from the `ANOVA_DDCt` tab. All the functions for relative expression analysis (including `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DDCt()`, and `ANOVA_DCt()`) return the relative expression table which include fold change and corresponding statistics." />
+<figcaption aria-hidden="true">Figure 4: The expression analysis output table from the `ANOVA_DDCt` tab. All the functions for relative expression analysis (including `TTEST_DDCt()`, `WILCOX_DDCt()`, `ANOVA_DDCt()`, and `ANOVA_DCt()`) return the relative expression table which include fold change and corresponding statistics.</figcaption>
 </figure>
 
 <br>
+
 
 
 
