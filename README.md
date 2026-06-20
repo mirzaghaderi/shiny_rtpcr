@@ -295,7 +295,7 @@ Email: gh.mirzaghaderi at uok.ac.ir
 
   Tutorial on youTube: https://www.youtube.com/watch?v=3LvQMkcJL9U
 
-  'rtpcr' package on GitHub: https://github.com/mirzaghaderi/rtpcr
+  `rtpcr` package on GitHub: https://github.com/mirzaghaderi/rtpcr
 
 
 # Citation
