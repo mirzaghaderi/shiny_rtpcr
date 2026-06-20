@@ -231,8 +231,8 @@ model, residuals, raw data and ANOVA table for each gene.</figcaption>
 
 <figure>
 <img src="man/figures/ddCt3.jpg" class="center" style="width:100.0%"
-alt="Figure 6: The output of ANOVA_DDCt(), and ANOVA_DCt() also include lm model, residuals, raw data and ANOVA table for each gene." />
-<figcaption aria-hidden="true">Figure 5: The output of <code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm model, residuals, raw data and ANOVA table for each gene.</figcaption>
+alt="" />
+<figcaption aria-hidden="true">Figure 6: The output of <code>ANOVA_DDCt</code>, and <code>ANOVA_DCt</code> also include lm model, residuals, raw data and ANOVA table for each gene.</figcaption>
 </figure>
 
 
