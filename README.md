@@ -236,9 +236,9 @@ alt="" /><figcaption aria-hidden="true">Figure 6: The output of <code>ANOVA_DDCt
 </figure>
 
 
-# How to edit output plots?
+# Output plots?
 
-The plot can further be edited by adding new layers (see examples
+Bar plots can be generated from the output expression tables using the `plotFactor` tab. The plot can further be edited by adding new layers (see examples
 below):
 
 <figure>
