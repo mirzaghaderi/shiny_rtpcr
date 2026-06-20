@@ -157,7 +157,7 @@ alt="Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by AN
 <figcaption aria-hidden="true">Figure 4: A sample data uploaded in the ANOVA_DDCt tab to be analyzed by ANOVA and delta delta CT method. This data has two experimental factors, a blocking factor, a replicate column, and E/Ct information of target and reference genes.</figcaption>
 </figure>
 
-<br>
+<p><br></p>
 
 
 **Single- or multi-factor experiments:** `ANOVA_DDCt` and `ANOVA_DCt` tabs are used for single- or multi-factor experiments. By
