@@ -10,7 +10,7 @@ the shiny_rtpcr tool is an interactive graphical user interface from the [rtpcr 
 <figure>
     <img src="man/figures/shiny_rtpcr.jpg" style="width: 100%;" alt="Figure 1" />
   <figcaption aria-hidden="true">
-    Figure 1: <code>shiny_rtpcr</code> A graphical summary to the shiny_rtpcr tool.
+    Figure 1: A graphical summary to the shiny_rtpcr tool.
   </figcaption>
 </figure>
 
