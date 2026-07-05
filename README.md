@@ -240,7 +240,7 @@ alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be
 | Task | Example Code |
 |----|----|
 | Change y-axis label | `+ ylab(expression(paste("Relative expression (", Delta * Delta * Ct, " method)")))` |
-| Add a horizontal reference line | `+ geom_hline(yintercept = 0, linetype = "dashed")` |
+| Add a horizontal reference line | `+ geom_hline(yintercept = 1, color = 'red', linetype = 'dashed', size = 0.5)` |
 | Change y-axis limits | `+ scale_y_continuous(expand = expansion(mult = c(0, 0.1)))` |
 | Relabel x-axis | `+ scale_x_discrete(labels = c("A" = "Control", "B" = "Treatment"))` |
 | Change fill colors | `+ scale_fill_brewer(palette = "Set2")` |
