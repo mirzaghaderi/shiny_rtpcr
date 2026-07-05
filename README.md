@@ -239,7 +239,7 @@ alt="" /><figcaption aria-hidden="true">Figure 7: The output plot can further be
 
 | Task | Example Code |
 |----|----|
-| Change y-axis label | `+ ylab("Relative expression ($\Delta\Delta Ct$ method)")` |
+| Change y-axis label | `+ ylab(expression(paste("Relative expression (", Delta * Delta * Ct, " method)")))` |
 | Add a horizontal reference line | `+ geom_hline(yintercept = 0, linetype = "dashed")` |
 | Change y-axis limits | `+ scale_y_continuous(expand = expansion(mult = c(0, 0.1)))` |
 | Relabel x-axis | `+ scale_x_discrete(labels = c("A" = "Control", "B" = "Treatment"))` |
